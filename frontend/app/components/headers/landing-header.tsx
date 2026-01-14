@@ -31,11 +31,12 @@ export default function LandingHeader() {
             </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <Link href="#" passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Problems
-              </NavigationMenuLink>
-            </Link>
+            <NavigationMenuLink
+              href="#"
+              className={navigationMenuTriggerStyle()}
+            >
+              Problems
+            </NavigationMenuLink>
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>

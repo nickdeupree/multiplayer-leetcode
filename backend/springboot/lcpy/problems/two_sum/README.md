@@ -2,7 +2,7 @@
 
 **Difficulty:** Easy
 **Topics:** Array, Hash Table
-**Tags:** grind, neetcode-150, grind-75, blind-75
+**Tags:** neetcode-150, blind-75, grind, grind-75
 
 **LeetCode:** [Problem 1](https://leetcode.com/problems/two-sum/description/)
 

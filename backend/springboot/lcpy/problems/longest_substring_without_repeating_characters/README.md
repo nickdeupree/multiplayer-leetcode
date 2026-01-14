@@ -2,7 +2,7 @@
 
 **Difficulty:** Medium
 **Topics:** Hash Table, String, Sliding Window
-**Tags:** blind-75, grind-75, grind, algo-master-75, neetcode-150
+**Tags:** neetcode-150, grind, blind-75, grind-75, algo-master-75
 
 **LeetCode:** [Problem 3](https://leetcode.com/problems/longest-substring-without-repeating-characters/description/)
 

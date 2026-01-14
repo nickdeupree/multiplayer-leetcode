@@ -2,7 +2,7 @@
 
 **Difficulty:** Medium
 **Topics:** Two Pointers, String, Dynamic Programming
-**Tags:** blind-75, grind, neetcode-150, grind-75
+**Tags:** neetcode-150, blind-75, grind, grind-75
 
 **LeetCode:** [Problem 5](https://leetcode.com/problems/longest-palindromic-substring/description/)
 

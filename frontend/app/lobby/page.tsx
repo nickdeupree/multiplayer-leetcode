@@ -12,16 +12,24 @@ import { Users2, BookOpen } from "lucide-react";
 import LobbyHeader from "@/app/components/headers/lobby-header";
 import Link from "next/link";
 
-import { MOCK_USERS, MOCK_PROBLEMS } from "@/app/mock_data/lobby";
+import { MOCK_USERS } from "@/app/mock-data/lobby";
+import { getProblemsForTable } from "@/app/helpers/lobby/problems";
 
 export default function LobbyPage() {
   const [selectedProblem, setSelectedProblem] = useState<Problem | null>(null);
   const router = useRouter();
 
+  const problemsForTable = getProblemsForTable();
+
+  const handleStart = () => {
+    if (!selectedProblem) return;
+    router.push(`/session?problemId=${selectedProblem.id}`);
+  }
+
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col">
       {/* Lobby Header */}
-      <LobbyHeader selectedProblem={selectedProblem} onStart={() => router.push('/session')} />
+      <LobbyHeader selectedProblem={selectedProblem} onStart={handleStart} />
 
       <main className="flex-1 w-full px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 h-[calc(100vh-8rem)]">
@@ -72,7 +80,7 @@ export default function LobbyPage() {
 
             <div className="flex-1 min-h-0">
               <ProblemTable 
-                problems={MOCK_PROBLEMS} 
+                problems={problemsForTable} 
                 onSelectProblem={setSelectedProblem}
                 selectedProblemId={selectedProblem?.id}
               />

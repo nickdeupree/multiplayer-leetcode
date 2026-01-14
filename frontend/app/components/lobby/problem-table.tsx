@@ -19,6 +19,7 @@ export interface Problem {
   difficulty: "Easy" | "Medium" | "Hard";
   topics: string[];
   tags: string[];
+  examples: { input: string; output: string;}[];
 }
 
 interface ProblemTableProps {
@@ -58,7 +59,7 @@ export function ProblemTable({ problems, onSelectProblem, selectedProblemId }: P
           className="pl-10"
         />
       </div>
-      <div className="rounded-md border bg-card">
+      <div className="rounded-md border bg-card h-screen overflow-auto">
         <Table>
           <TableHeader>
             <TableRow>
@@ -77,7 +78,7 @@ export function ProblemTable({ problems, onSelectProblem, selectedProblemId }: P
                 }`}
                 onClick={() => onSelectProblem?.(problem)}
               >
-                <TableCell className="font-medium">{problem.id}. {problem.title}</TableCell>
+                <TableCell className="font-medium">{problem.title}</TableCell>
                 <TableCell>
                   <Badge variant="outline" className={getDifficultyColor(problem.difficulty)}>
                     {problem.difficulty}

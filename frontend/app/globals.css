@@ -123,3 +123,53 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Remote Cursor Styles for y-monaco */
+
+.yRemoteSelection {
+  background-color: rgba(250, 129, 0, 0.5) !important;
+}
+
+.yRemoteSelectionHead {
+  position: absolute !important;
+  border-left: 2px solid !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  border-right: none !important;
+  height: 100% !important;
+  box-sizing: border-box !important;
+  width: 2px !important;
+}
+
+.yRemoteSelectionHead::after {
+  position: absolute;
+  content: ' ';
+  border: 3px solid;
+  border-radius: 4px;
+  left: -4px;
+  top: -5px;
+  width: 0;
+  height: 0;
+}
+
+/* Optional: Show username on hover or always */
+.yRemoteSelectionHead::before {
+  content: attr(data-name);
+  position: absolute;
+  opacity: 0;
+  background-color: inherit;
+  color: white;
+  font-size: 10px;
+  padding: 2px 4px;
+  border-radius: 4px;
+  top: -22px;
+  left: 0;
+  pointer-events: none;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+  z-index: 1000;
+}
+
+.yRemoteSelectionHead:hover::before {
+  opacity: 1;
+}

@@ -25,3 +25,11 @@ export function getExamplesById(problemId: string): { input: string; output: str
     const problem = problems.find(p => p.id === problemId);
     return problem?.examples || [];
 }
+
+export function getProblemTypesById(problemId: string): [string, string] | null{
+    const problem = problems.find(p => p.id === problemId);
+    if (problem?.types && problem.types.length === 2) {
+        return problem.types as [string, string];
+    }
+    return null;
+}

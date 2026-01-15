@@ -9,6 +9,7 @@ export type Problem = {
   topics: string[];
   tags: string[];
   examples: Example[];
+  types: string[];
 };
 
 export const problems: Problem[] = [
@@ -38,7 +39,8 @@ export const problems: Problem[] = [
         "input": "accounts = [[\"Gabe\",\"Gabe0@m.co\",\"Gabe3@m.co\",\"Gabe1@m.co\"],[\"Kevin\",\"Kevin3@m.co\",\"Kevin5@m.co\",\"Kevin0@m.co\"],[\"Ethan\",\"Ethan5@m.co\",\"Ethan4@m.co\",\"Ethan0@m.co\"],[\"Hanzo\",\"Hanzo3@m.co\",\"Hanzo1@m.co\",\"Hanzo0@m.co\"],[\"Fern\",\"Fern5@m.co\",\"Fern1@m.co\",\"Fern0@m.co\"]]",
         "output": "[[\"Ethan\",\"Ethan0@m.co\",\"Ethan4@m.co\",\"Ethan5@m.co\"],[\"Gabe\",\"Gabe0@m.co\",\"Gabe1@m.co\",\"Gabe3@m.co\"],[\"Hanzo\",\"Hanzo0@m.co\",\"Hanzo1@m.co\",\"Hanzo3@m.co\"],[\"Kevin\",\"Kevin0@m.co\",\"Kevin3@m.co\",\"Kevin5@m.co\"],[\"Fern\",\"Fern0@m.co\",\"Fern1@m.co\",\"Fern5@m.co\"]]"
       }
-    ]
+    ],
+    "types": ["list[list[str]]", "list[list[str]]"]
   },
   {
     "id": "add_binary",
@@ -63,7 +65,8 @@ export const problems: Problem[] = [
         "input": "a = \"1010\", b = \"1011\"",
         "output": "\"10101\""
       }
-    ]
+    ],
+    "types": ["str, str", "str"]
   },
   {
     "id": "add_two_numbers",
@@ -87,7 +90,8 @@ export const problems: Problem[] = [
         "input": "l1 = [0], l2 = [0]",
         "output": "[0]"
       }
-    ]
+    ],
+    "types": ["ListNode, ListNode", "ListNode"]
   },
   {
     "id": "alien_dictionary",
@@ -116,7 +120,8 @@ export const problems: Problem[] = [
         "input": "words = [\"z\",\"x\"]",
         "output": "\"zx\""
       }
-    ]
+    ],
+    "types": ["list[str]", "str"]
   },
   {
     "id": "balanced_binary_tree",
@@ -141,7 +146,8 @@ export const problems: Problem[] = [
         "input": "root = [1,2,2,3,3,null,null,4,4]",
         "output": "false"
       }
-    ]
+    ],
+    "types": ["TreeNode", "bool"]
   },
   {
     "id": "basic_calculator",
@@ -166,7 +172,8 @@ export const problems: Problem[] = [
         "input": "s = \" 2-1 + 2 \"",
         "output": "3"
       }
-    ]
+    ],
+    "types": ["str", "int"]
   },
   {
     "id": "best_time_to_buy_and_sell_stock",
@@ -191,7 +198,8 @@ export const problems: Problem[] = [
         "input": "prices = [7,6,4,3,1]",
         "output": "0"
       }
-    ]
+    ],
+    "types": ["list[int]", "int"]
   },
   {
     "id": "binary_search",
@@ -215,7 +223,8 @@ export const problems: Problem[] = [
         "input": "nums = [-1,0,3,5,9,12], target = 2",
         "output": "-1"
       }
-    ]
+    ],
+    "types": ["list[int], int", "int"]
   },
   {
     "id": "binary_tree_level_order_traversal",
@@ -242,7 +251,8 @@ export const problems: Problem[] = [
         "input": "root = [1]",
         "output": "[[1]]"
       }
-    ]
+    ],
+    "types": ["TreeNode", "list[list[int]]"]
   },
   {
     "id": "binary_tree_maximum_path_sum",
@@ -268,7 +278,8 @@ export const problems: Problem[] = [
         "input": "root = [-10,9,20,null,null,15,7]",
         "output": "42"
       }
-    ]
+    ],
+    "types": ["TreeNode", "int"]
   },
   {
     "id": "binary_tree_right_side_view",
@@ -295,7 +306,8 @@ export const problems: Problem[] = [
         "input": "root = [1,2,3,4,null,null,null,5]",
         "output": "[1,3,4,5]"
       }
-    ]
+    ],
+    "types": ["TreeNode", "list[int]"]
   },
   {
     "id": "climbing_stairs",
@@ -321,7 +333,8 @@ export const problems: Problem[] = [
         "input": "n = 3",
         "output": "3"
       }
-    ]
+    ],
+    "types": ["int", "int"]
   },
   {
     "id": "clone_graph",
@@ -349,7 +362,8 @@ export const problems: Problem[] = [
         "input": "adjList = [[]]",
         "output": "[[]]"
       }
-    ]
+    ],
+    "types": ["list[list[int]]", "list[list[int]]"]
   },
   {
     "id": "coin_change",
@@ -376,7 +390,8 @@ export const problems: Problem[] = [
         "input": "coins = [2], amount = 3",
         "output": "-1"
       }
-    ]
+    ],
+    "types": ["list[int], int", "int"]
   },
   {
     "id": "combination_sum",
@@ -401,7 +416,8 @@ export const problems: Problem[] = [
         "input": "candidates = [2,3,5], target = 8",
         "output": "[[2,2,2,2],[2,3,3],[3,5]]"
       }
-    ]
+    ],
+    "types": ["list[int], int", "list[list[int]]"]
   },
   {
     "id": "construct_binary_tree_from_preorder_and_inorder_traversal",
@@ -429,7 +445,8 @@ export const problems: Problem[] = [
         "input": "preorder = [-1], inorder = [-1]",
         "output": "[-1]"
       }
-    ]
+    ],
+    "types": ["list[int], list[int]", "TreeNode"]
   },
   {
     "id": "container_with_most_water",
@@ -456,7 +473,8 @@ export const problems: Problem[] = [
         "input": "height = [1,1]",
         "output": "1"
       }
-    ]
+    ],
+    "types": ["list[int]", "int"]
   },
   {
     "id": "contains_duplicate",
@@ -482,7 +500,8 @@ export const problems: Problem[] = [
         "input": "nums = [1,2,3,4]",
         "output": "false"
       }
-    ]
+    ],
+    "types": ["list[int]", "bool"]
   },
   {
     "id": "contiguous_array",
@@ -505,7 +524,8 @@ export const problems: Problem[] = [
         "input": "nums = [0,1,0]",
         "output": "2"
       }
-    ]
+    ],
+    "types": ["list[int]", "int"]
   },
   {
     "id": "counting_bits",
@@ -529,7 +549,8 @@ export const problems: Problem[] = [
         "input": "n = 5",
         "output": "[0,1,1,2,1,2]"
       }
-    ]
+    ],
+    "types": ["int", "list[int]"]
   },
   {
     "id": "course_schedule",
@@ -556,7 +577,8 @@ export const problems: Problem[] = [
         "input": "numCourses = 2, prerequisites = [[1,0],[0,1]]",
         "output": "false"
       }
-    ]
+    ],
+    "types": ["int, list[list[int]]", "bool"]
   },
   {
     "id": "course_schedule_ii",
@@ -582,7 +604,8 @@ export const problems: Problem[] = [
         "input": "numCourses = 4, prerequisites = [[1,0],[2,0],[3,1],[3,2]]",
         "output": "[0,2,1,3]"
       }
-    ]
+    ],
+    "types": ["int, list[list[int]]", "list[int]"]
   },
   {
     "id": "daily_temperatures",
@@ -606,7 +629,8 @@ export const problems: Problem[] = [
         "input": "temperatures = [30,40,50,60]",
         "output": "[1,1,1,0]"
       }
-    ]
+    ],
+    "types": ["list[int]", "list[int]"]
   },
   {
     "id": "decode_string",
@@ -629,7 +653,8 @@ export const problems: Problem[] = [
         "input": "s = \"3[a2[c]]\"",
         "output": "\"accaccacc\""
       }
-    ]
+    ],
+    "types": ["str", "str"]
   },
   {
     "id": "decode_ways",
@@ -652,7 +677,8 @@ export const problems: Problem[] = [
         "input": "s = \"226\"",
         "output": "3"
       }
-    ]
+    ],
+    "types": ["str", "int"]
   },
   {
     "id": "design_add_and_search_words_data_structure",
@@ -669,7 +695,8 @@ export const problems: Problem[] = [
       "grind",
       "blind-75"
     ],
-    "examples": []
+    "examples": [],
+    "types": ["Design", "Design"]
   },
   {
     "id": "design_in_memory_file_system",
@@ -689,7 +716,8 @@ export const problems: Problem[] = [
         "input": "",
         "output": ""
       }
-    ]
+    ],
+    "types": ["Design", "Design"]
   },
   {
     "id": "diagonal_traverse",
@@ -714,7 +742,8 @@ export const problems: Problem[] = [
         "input": "mat = [[1,2],[3,4]]",
         "output": "[1,2,3,4]"
       }
-    ]
+    ],
+    "types": ["list[list[int]]", "list[int]"]
   },
   {
     "id": "diameter_of_binary_tree",
@@ -739,7 +768,8 @@ export const problems: Problem[] = [
         "input": "root = [1,2]",
         "output": "1"
       }
-    ]
+    ],
+    "types": ["TreeNode", "int"]
   },
   {
     "id": "encode_and_decode_strings",
@@ -759,7 +789,8 @@ export const problems: Problem[] = [
         "input": "dummy_input = [\"Hello\",\"World\"]",
         "output": "\"Hello,World\""
       }
-    ]
+    ],
+    "types": ["list[str]", "str"]
   },
   {
     "id": "evaluate_reverse_polish_notation",
@@ -784,7 +815,8 @@ export const problems: Problem[] = [
         "input": "tokens = [\"4\",\"13\",\"5\",\"/\",\"+\"]",
         "output": "6"
       }
-    ]
+    ],
+    "types": ["list[str]", "int"]
   },
   {
     "id": "find_all_anagrams_in_a_string",
@@ -809,7 +841,8 @@ export const problems: Problem[] = [
         "input": "s = \"abab\", p = \"ab\"",
         "output": "[0,1,2]"
       }
-    ]
+    ],
+    "types": ["str, str", "list[int]"]
   },
   {
     "id": "find_k_closest_elements",
@@ -835,7 +868,8 @@ export const problems: Problem[] = [
         "input": "arr = [1,1,2,3,4,5], k = 4, x = -1",
         "output": "[1,1,2,3]"
       }
-    ]
+    ],
+    "types": ["list[int], int, int", "list[int]"]
   },
   {
     "id": "find_median_from_data_stream",
@@ -855,7 +889,8 @@ export const problems: Problem[] = [
       "grind-75",
       "algo-master-75"
     ],
-    "examples": []
+    "examples": [],
+    "types": ["Design", "Design"]
   },
   {
     "id": "find_minimum_in_rotated_sorted_array",
@@ -878,7 +913,8 @@ export const problems: Problem[] = [
         "input": "nums = [4,5,6,7,0,1,2]",
         "output": "0"
       }
-    ]
+    ],
+    "types": ["list[int]", "int"]
   },
   {
     "id": "find_the_duplicate_number",
@@ -903,7 +939,8 @@ export const problems: Problem[] = [
         "input": "nums = [3,1,3,4,2]",
         "output": "3"
       }
-    ]
+    ],
+    "types": ["list[int]", "int"]
   },
   {
     "id": "first_bad_version",
@@ -926,7 +963,8 @@ export const problems: Problem[] = [
         "input": "n = 1, bad = 1",
         "output": "1"
       }
-    ]
+    ],
+    "types": ["int, int", "int"]
   },
   {
     "id": "flood_fill",
@@ -951,7 +989,8 @@ export const problems: Problem[] = [
         "input": "image = [[0,0,0],[0,0,0]], sr = 0, sc = 0, color = 0",
         "output": "[[0,0,0],[0,0,0]]"
       }
-    ]
+    ],
+    "types": ["list[list[int]], int, int, int", "list[list[int]]"]
   },
   {
     "id": "gas_station",
@@ -974,7 +1013,8 @@ export const problems: Problem[] = [
         "input": "gas = [2,3,4], cost = [3,4,3]",
         "output": "-1"
       }
-    ]
+    ],
+    "types": ["list[int], list[int]", "int"]
   },
   {
     "id": "graph_valid_tree",
@@ -999,7 +1039,8 @@ export const problems: Problem[] = [
         "input": "n = 5, and edges = [[0,1], [1,2], [2,3], [1,3], [1,4]]",
         "output": "false"
       }
-    ]
+    ],
+    "types": ["int, list[list[int]]", "bool"]
   },
   {
     "id": "group_anagrams",
@@ -1026,7 +1067,8 @@ export const problems: Problem[] = [
         "input": "strs = [\"\"]",
         "output": "[[\"\"]]"
       }
-    ]
+    ],
+    "types": ["list[str]", "list[list[str]]"]
   },
   {
     "id": "house_robber",
@@ -1050,7 +1092,8 @@ export const problems: Problem[] = [
         "input": "nums = [2,7,9,3,1]",
         "output": "12"
       }
-    ]
+    ],
+    "types": ["list[int]", "int"]
   },
   {
     "id": "house_robber_ii",
@@ -1074,7 +1117,8 @@ export const problems: Problem[] = [
         "input": "nums = [1,2,3,1]",
         "output": "4"
       }
-    ]
+    ],
+    "types": ["list[int]", "int"]
   },
   {
     "id": "implement_queue_using_stacks",
@@ -1089,7 +1133,8 @@ export const problems: Problem[] = [
       "grind",
       "grind-75"
     ],
-    "examples": []
+    "examples": [],
+    "types": ["Design", "Design"]
   },
   {
     "id": "implement_trie_prefix_tree",
@@ -1108,7 +1153,8 @@ export const problems: Problem[] = [
       "grind-75",
       "algo-master-75"
     ],
-    "examples": []
+    "examples": [],
+    "types": ["Design", "Design"]
   },
   {
     "id": "insert_interval",
@@ -1132,7 +1178,8 @@ export const problems: Problem[] = [
         "input": "intervals = [[1,2],[3,5],[6,7],[8,10],[12,16]], newInterval = [4,8]",
         "output": "[[1,2],[3,10],[12,16]]"
       }
-    ]
+    ],
+    "types": ["list[list[int]], list[int]", "list[list[int]]"]
   },
   {
     "id": "invert_binary_tree",
@@ -1159,7 +1206,8 @@ export const problems: Problem[] = [
         "input": "root = [2,1,3]",
         "output": "[2,3,1]"
       }
-    ]
+    ],
+    "types": ["TreeNode", "TreeNode"]
   },
   {
     "id": "jump_game",
@@ -1183,7 +1231,8 @@ export const problems: Problem[] = [
         "input": "nums = [3,2,1,0,4]",
         "output": "false"
       }
-    ]
+    ],
+    "types": ["list[int]", "bool"]
   },
   {
     "id": "k_closest_points_to_origin",
@@ -1212,7 +1261,8 @@ export const problems: Problem[] = [
         "input": "points = [[3,3],[5,-1],[-2,4]], k = 2",
         "output": "[[3,3],[-2,4]]"
       }
-    ]
+    ],
+    "types": ["list[list[int]], int", "list[list[int]]"]
   },
   {
     "id": "kth_smallest_element_in_a_bst",
@@ -1240,7 +1290,8 @@ export const problems: Problem[] = [
         "input": "root = [5,3,6,2,4,null,null,1], k = 3",
         "output": "3"
       }
-    ]
+    ],
+    "types": ["TreeNode, int", "int"]
   },
   {
     "id": "largest_rectangle_in_histogram",
@@ -1266,7 +1317,8 @@ export const problems: Problem[] = [
         "input": "heights = [2,4]",
         "output": "4"
       }
-    ]
+    ],
+    "types": ["list[int]", "int"]
   },
   {
     "id": "letter_combinations_of_a_phone_number",
@@ -1291,7 +1343,8 @@ export const problems: Problem[] = [
         "input": "digits = \"\"",
         "output": "[]"
       }
-    ]
+    ],
+    "types": ["str", "list[str]"]
   },
   {
     "id": "linked_list_cycle",
@@ -1317,7 +1370,8 @@ export const problems: Problem[] = [
         "input": "head = [1,2], pos = 0",
         "output": "true"
       }
-    ]
+    ],
+    "types": ["ListNode, int", "bool"]
   },
   {
     "id": "longest_common_subsequence",
@@ -1341,7 +1395,8 @@ export const problems: Problem[] = [
         "input": "text1 = \"abc\", text2 = \"abc\"",
         "output": "3"
       }
-    ]
+    ],
+    "types": ["str, str", "int"]
   },
   {
     "id": "longest_consecutive_sequence",
@@ -1367,7 +1422,8 @@ export const problems: Problem[] = [
         "input": "nums = [0,3,7,2,5,8,4,6,0,1]",
         "output": "9"
       }
-    ]
+    ],
+    "types": ["list[int]", "int"]
   },
   {
     "id": "longest_increasing_subsequence",
@@ -1393,7 +1449,8 @@ export const problems: Problem[] = [
         "input": "nums = [0,1,0,3,2,3]",
         "output": "4"
       }
-    ]
+    ],
+    "types": ["list[int]", "int"]
   },
   {
     "id": "longest_palindrome",
@@ -1417,7 +1474,8 @@ export const problems: Problem[] = [
         "input": "s = \"a\"",
         "output": "1"
       }
-    ]
+    ],
+    "types": ["str", "int"]
   },
   {
     "id": "longest_palindromic_substring",
@@ -1443,7 +1501,8 @@ export const problems: Problem[] = [
         "input": "s = \"cbbd\"",
         "output": "\"bb\""
       }
-    ]
+    ],
+    "types": ["str", "str"]
   },
   {
     "id": "longest_repeating_character_replacement",
@@ -1467,7 +1526,8 @@ export const problems: Problem[] = [
         "input": "s = \"AABABBA\", k = 1",
         "output": "4"
       }
-    ]
+    ],
+    "types": ["str, int", "int"]
   },
   {
     "id": "longest_substring_without_repeating_characters",
@@ -1494,7 +1554,8 @@ export const problems: Problem[] = [
         "input": "s = \"bbbbb\"",
         "output": "1"
       }
-    ]
+    ],
+    "types": ["str", "int"]
   },
   {
     "id": "lowest_common_ancestor_of_a_binary_search_tree",
@@ -1521,7 +1582,8 @@ export const problems: Problem[] = [
         "input": "root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 4",
         "output": "2"
       }
-    ]
+    ],
+    "types": ["TreeNode, int, int", "int"]
   },
   {
     "id": "lowest_common_ancestor_of_a_binary_tree",
@@ -1546,7 +1608,8 @@ export const problems: Problem[] = [
         "input": "root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4",
         "output": "5"
       }
-    ]
+    ],
+    "types": ["TreeNode, int, int", "int"]
   },
   {
     "id": "lru_cache",
@@ -1564,7 +1627,8 @@ export const problems: Problem[] = [
       "grind",
       "grind-75"
     ],
-    "examples": []
+    "examples": [],
+    "types": ["Design", "Design"]
   },
   {
     "id": "majority_element",
@@ -1591,7 +1655,8 @@ export const problems: Problem[] = [
         "input": "nums = [2,2,1,1,1,2,2]",
         "output": "2"
       }
-    ]
+    ],
+    "types": ["list[int]", "int"]
   },
   {
     "id": "maximum_depth_of_binary_tree",
@@ -1618,7 +1683,8 @@ export const problems: Problem[] = [
         "input": "root = [1,null,2]",
         "output": "2"
       }
-    ]
+    ],
+    "types": ["TreeNode", "int"]
   },
   {
     "id": "maximum_product_subarray",
@@ -1642,7 +1708,8 @@ export const problems: Problem[] = [
         "input": "nums = [-2,0,-1]",
         "output": "0"
       }
-    ]
+    ],
+    "types": ["list[int]", "int"]
   },
   {
     "id": "maximum_profit_in_job_scheduling",
@@ -1667,7 +1734,8 @@ export const problems: Problem[] = [
         "input": "startTime = [1,2,3,4,6], endTime = [3,5,10,6,9], profit = [20,20,100,70,60]",
         "output": "150"
       }
-    ]
+    ],
+    "types": ["list[int], list[int], list[int]", "int"]
   },
   {
     "id": "maximum_subarray",
@@ -1694,7 +1762,8 @@ export const problems: Problem[] = [
         "input": "nums = [1]",
         "output": "1"
       }
-    ]
+    ],
+    "types": ["list[int]", "int"]
   },
   {
     "id": "maximum_width_of_binary_tree",
@@ -1718,7 +1787,8 @@ export const problems: Problem[] = [
         "input": "root = [1,3,2,5,null,null,9,6,null,7]",
         "output": "7"
       }
-    ]
+    ],
+    "types": ["TreeNode", "int"]
   },
   {
     "id": "median_of_two_sorted_arrays",
@@ -1742,7 +1812,8 @@ export const problems: Problem[] = [
         "input": "nums1 = [1,2], nums2 = [3,4]",
         "output": "2.50000"
       }
-    ]
+    ],
+    "types": ["list[int], list[int]", "float"]
   },
   {
     "id": "meeting_rooms",
@@ -1765,7 +1836,8 @@ export const problems: Problem[] = [
         "input": "[[7,10],[2,4]]",
         "output": "true"
       }
-    ]
+    ],
+    "types": ["list[list[int]]", "bool"]
   },
   {
     "id": "meeting_rooms_ii",
@@ -1791,7 +1863,8 @@ export const problems: Problem[] = [
         "input": "[[7,10],[2,4]]",
         "output": "1"
       }
-    ]
+    ],
+    "types": ["list[list[int]]", "int"]
   },
   {
     "id": "merge_intervals",
@@ -1817,7 +1890,8 @@ export const problems: Problem[] = [
         "input": "intervals = [[1,4],[4,5]]",
         "output": "[[1,5]]"
       }
-    ]
+    ],
+    "types": ["list[list[int]]", "list[list[int]]"]
   },
   {
     "id": "merge_k_sorted_lists",
@@ -1845,7 +1919,8 @@ export const problems: Problem[] = [
         "input": "lists = []",
         "output": "[]"
       }
-    ]
+    ],
+    "types": ["list[ListNode]", "ListNode"]
   },
   {
     "id": "merge_two_sorted_lists",
@@ -1870,7 +1945,8 @@ export const problems: Problem[] = [
         "input": "list1 = [], list2 = []",
         "output": "[]"
       }
-    ]
+    ],
+    "types": ["ListNode, ListNode", "ListNode"]
   },
   {
     "id": "middle_of_the_linked_list",
@@ -1893,7 +1969,8 @@ export const problems: Problem[] = [
         "input": "head = [1,2,3,4,5,6]",
         "output": "[4,5,6]"
       }
-    ]
+    ],
+    "types": ["ListNode", "ListNode"]
   },
   {
     "id": "min_stack",
@@ -1909,7 +1986,8 @@ export const problems: Problem[] = [
       "grind",
       "grind-75"
     ],
-    "examples": []
+    "examples": [],
+    "types": ["Design", "Design"]
   },
   {
     "id": "minimum_height_trees",
@@ -1934,7 +2012,8 @@ export const problems: Problem[] = [
         "input": "n = 6, edges = [[3,0],[3,1],[3,2],[3,4],[5,4]]",
         "output": "[3,4]"
       }
-    ]
+    ],
+    "types": ["int, list[list[int]]", "list[int]"]
   },
   {
     "id": "minimum_window_substring",
@@ -1961,7 +2040,8 @@ export const problems: Problem[] = [
         "input": "s = \"a\", t = \"a\"",
         "output": "\"a\""
       }
-    ]
+    ],
+    "types": ["str, str", "str"]
   },
   {
     "id": "missing_number",
@@ -1988,7 +2068,8 @@ export const problems: Problem[] = [
         "input": "nums = [0,1]",
         "output": "2"
       }
-    ]
+    ],
+    "types": ["list[int]", "int"]
   },
   {
     "id": "next_permutation",
@@ -2010,7 +2091,8 @@ export const problems: Problem[] = [
         "input": "nums = [3,2,1]",
         "output": "[1,2,3]"
       }
-    ]
+    ],
+    "types": ["list[int]", "list[int]"]
   },
   {
     "id": "non_overlapping_intervals",
@@ -2036,7 +2118,8 @@ export const problems: Problem[] = [
         "input": "intervals = [[1,2],[1,2],[1,2]]",
         "output": "2"
       }
-    ]
+    ],
+    "types": ["list[list[int]]", "int"]
   },
   {
     "id": "number_of_1_bits",
@@ -2059,7 +2142,8 @@ export const problems: Problem[] = [
         "input": "n = 128",
         "output": "1"
       }
-    ]
+    ],
+    "types": ["int", "int"]
   },
   {
     "id": "number_of_connected_components_in_an_undirected_graph",
@@ -2084,7 +2168,8 @@ export const problems: Problem[] = [
         "input": "n = 5 and edges = [[0, 1], [1, 2], [2, 3], [3, 4]]",
         "output": "1"
       }
-    ]
+    ],
+    "types": ["int, list[list[int]]", "int"]
   },
   {
     "id": "number_of_islands",
@@ -2113,7 +2198,8 @@ export const problems: Problem[] = [
         "input": "grid = [",
         "output": "3"
       }
-    ]
+    ],
+    "types": ["list[list[str]]", "int"]
   },
   {
     "id": "odd_even_linked_list",
@@ -2134,7 +2220,8 @@ export const problems: Problem[] = [
         "input": "head = [2,1,3,5,6,4,7]",
         "output": "[2,3,6,7,1,5,4]"
       }
-    ]
+    ],
+    "types": ["ListNode", "ListNode"]
   },
   {
     "id": "pacific_atlantic_water_flow",
@@ -2160,7 +2247,8 @@ export const problems: Problem[] = [
         "input": "heights = [[1]]",
         "output": "[[0,0]]"
       }
-    ]
+    ],
+    "types": ["list[list[int]]", "list[list[int]]"]
   },
   {
     "id": "palindrome_partitioning",
@@ -2183,7 +2271,8 @@ export const problems: Problem[] = [
         "input": "s = \"a\"",
         "output": "[[\"a\"]]"
       }
-    ]
+    ],
+    "types": ["str", "list[list[str]]"]
   },
   {
     "id": "palindromic_substrings",
@@ -2207,7 +2296,8 @@ export const problems: Problem[] = [
         "input": "s = \"aaa\"",
         "output": "6"
       }
-    ]
+    ],
+    "types": ["str", "int"]
   },
   {
     "id": "partition_equal_subset_sum",
@@ -2232,7 +2322,8 @@ export const problems: Problem[] = [
         "input": "nums = [1,2,3,5]",
         "output": "false"
       }
-    ]
+    ],
+    "types": ["list[int]", "bool"]
   },
   {
     "id": "path_sum_ii",
@@ -2256,7 +2347,8 @@ export const problems: Problem[] = [
         "input": "root = [1,2,3], targetSum = 5",
         "output": "[]"
       }
-    ]
+    ],
+    "types": ["TreeNode, int", "list[list[int]]"]
   },
   {
     "id": "permutations",
@@ -2281,7 +2373,8 @@ export const problems: Problem[] = [
         "input": "nums = [0,1]",
         "output": "[[0,1],[1,0]]"
       }
-    ]
+    ],
+    "types": ["list[int]", "list[list[int]]"]
   },
   {
     "id": "product_of_array_except_self",
@@ -2307,7 +2400,8 @@ export const problems: Problem[] = [
         "input": "nums = [-1,1,0,-3,3]",
         "output": "[0,0,9,0,0]"
       }
-    ]
+    ],
+    "types": ["list[int]", "list[int]"]
   },
   {
     "id": "ransom_note",
@@ -2331,7 +2425,8 @@ export const problems: Problem[] = [
         "input": "ransomNote = \"aa\", magazine = \"ab\"",
         "output": "false"
       }
-    ]
+    ],
+    "types": ["str, str", "bool"]
   },
   {
     "id": "remove_nth_node_from_end_of_list",
@@ -2356,7 +2451,8 @@ export const problems: Problem[] = [
         "input": "head = [1], n = 1",
         "output": "[]"
       }
-    ]
+    ],
+    "types": ["ListNode, int", "ListNode"]
   },
   {
     "id": "reorder_list",
@@ -2381,7 +2477,8 @@ export const problems: Problem[] = [
         "input": "head = [1,2,3,4,5]",
         "output": "[1,5,2,4,3]"
       }
-    ]
+    ],
+    "types": ["ListNode", "ListNode"]
   },
   {
     "id": "reverse_bits",
@@ -2404,7 +2501,8 @@ export const problems: Problem[] = [
         "input": "n = 2147483644",
         "output": "1073741822"
       }
-    ]
+    ],
+    "types": ["int", "int"]
   },
   {
     "id": "reverse_integer",
@@ -2426,7 +2524,8 @@ export const problems: Problem[] = [
         "input": "x = -123",
         "output": "-321"
       }
-    ]
+    ],
+    "types": ["int", "int"]
   },
   {
     "id": "reverse_linked_list",
@@ -2451,7 +2550,8 @@ export const problems: Problem[] = [
         "input": "head = [1,2]",
         "output": "[2,1]"
       }
-    ]
+    ],
+    "types": ["ListNode", "ListNode"]
   },
   {
     "id": "reverse_linked_list_ii",
@@ -2474,7 +2574,8 @@ export const problems: Problem[] = [
         "input": "head = [5], left = 1, right = 1",
         "output": "[5]"
       }
-    ]
+    ],
+    "types": ["ListNode, int, int", "ListNode"]
   },
   {
     "id": "reverse_nodes_in_k_group",
@@ -2497,7 +2598,8 @@ export const problems: Problem[] = [
         "input": "head = [1,2,3,4,5], k = 3",
         "output": "[3,2,1,4,5]"
       }
-    ]
+    ],
+    "types": ["ListNode, int", "ListNode"]
   },
   {
     "id": "rotate_array",
@@ -2520,7 +2622,8 @@ export const problems: Problem[] = [
         "input": "nums = [-1,-100,3,99], k = 2",
         "output": "[3,99,-1,-100]"
       }
-    ]
+    ],
+    "types": ["list[int], int", "list[int]"]
   },
   {
     "id": "rotate_image",
@@ -2545,7 +2648,8 @@ export const problems: Problem[] = [
         "input": "matrix = [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]",
         "output": "[[15,13,2,5],[14,3,4,1],[12,6,8,9],[16,7,10,11]]"
       }
-    ]
+    ],
+    "types": ["list[list[int]]", "list[list[int]]"]
   },
   {
     "id": "rotting_oranges",
@@ -2571,7 +2675,8 @@ export const problems: Problem[] = [
         "input": "grid = [[2,1,1],[0,1,1],[1,0,1]]",
         "output": "-1"
       }
-    ]
+    ],
+    "types": ["list[list[int]]", "int"]
   },
   {
     "id": "same_tree",
@@ -2596,7 +2701,8 @@ export const problems: Problem[] = [
         "input": "p = [1,2], q = [1,null,2]",
         "output": "false"
       }
-    ]
+    ],
+    "types": ["TreeNode, TreeNode", "bool"]
   },
   {
     "id": "search_in_rotated_sorted_array",
@@ -2622,7 +2728,8 @@ export const problems: Problem[] = [
         "input": "nums = [4,5,6,7,0,1,2], target = 3",
         "output": "-1"
       }
-    ]
+    ],
+    "types": ["list[int], int", "int"]
   },
   {
     "id": "serialize_and_deserialize_binary_tree",
@@ -2652,7 +2759,8 @@ export const problems: Problem[] = [
         "input": "root = []",
         "output": "[]"
       }
-    ]
+    ],
+    "types": ["TreeNode", "TreeNode"]
   },
   {
     "id": "set_matrix_zeroes",
@@ -2676,7 +2784,8 @@ export const problems: Problem[] = [
         "input": "matrix = [[0,1,2,0],[3,4,5,2],[1,3,1,5]]",
         "output": "[[0,0,0,0],[0,4,5,0],[0,3,1,0]]"
       }
-    ]
+    ],
+    "types": ["list[list[int]]", "list[list[int]]"]
   },
   {
     "id": "sort_colors",
@@ -2701,7 +2810,8 @@ export const problems: Problem[] = [
         "input": "nums = [2,0,1]",
         "output": "[0,1,2]"
       }
-    ]
+    ],
+    "types": ["list[int]", "list[int]"]
   },
   {
     "id": "spiral_matrix",
@@ -2728,7 +2838,8 @@ export const problems: Problem[] = [
         "input": "matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]",
         "output": "[1,2,3,4,8,12,11,10,9,5,6,7]"
       }
-    ]
+    ],
+    "types": ["list[list[int]]", "list[int]"]
   },
   {
     "id": "string_to_integer_atoi",
@@ -2750,7 +2861,8 @@ export const problems: Problem[] = [
         "input": "s = \"   -042\"",
         "output": "-42"
       }
-    ]
+    ],
+    "types": ["str", "int"]
   },
   {
     "id": "subsets",
@@ -2776,7 +2888,8 @@ export const problems: Problem[] = [
         "input": "nums = [0]",
         "output": "[[],[0]]"
       }
-    ]
+    ],
+    "types": ["list[int]", "list[list[int]]"]
   },
   {
     "id": "subtree_of_another_tree",
@@ -2802,7 +2915,8 @@ export const problems: Problem[] = [
         "input": "root = [3,4,5,1,2,null,null,null,null,0], subRoot = [4,1,2]",
         "output": "false"
       }
-    ]
+    ],
+    "types": ["TreeNode, TreeNode", "bool"]
   },
   {
     "id": "sum_of_two_integers",
@@ -2825,7 +2939,8 @@ export const problems: Problem[] = [
         "input": "a = 2, b = 3",
         "output": "5"
       }
-    ]
+    ],
+    "types": ["int, int", "int"]
   },
   {
     "id": "swap_nodes_in_pairs",
@@ -2848,7 +2963,8 @@ export const problems: Problem[] = [
         "input": "head = []",
         "output": "[]"
       }
-    ]
+    ],
+    "types": ["ListNode", "ListNode"]
   },
   {
     "id": "task_scheduler",
@@ -2876,7 +2992,8 @@ export const problems: Problem[] = [
         "input": "tasks = [\"A\",\"C\",\"A\",\"B\",\"D\",\"B\"], n = 1",
         "output": "6"
       }
-    ]
+    ],
+    "types": ["list[str], int", "int"]
   },
   {
     "id": "three_sum",
@@ -2903,7 +3020,8 @@ export const problems: Problem[] = [
         "input": "nums = [0,1,1]",
         "output": "[]"
       }
-    ]
+    ],
+    "types": ["list[int]", "list[list[int]]"]
   },
   {
     "id": "time_based_key_value_store",
@@ -2920,7 +3038,8 @@ export const problems: Problem[] = [
       "grind",
       "grind-75"
     ],
-    "examples": []
+    "examples": [],
+    "types": ["Design", "Design"]
   },
   {
     "id": "top_k_frequent_elements",
@@ -2950,7 +3069,8 @@ export const problems: Problem[] = [
         "input": "nums = [1], k = 1",
         "output": "[1]"
       }
-    ]
+    ],
+    "types": ["list[int], int", "list[int]"]
   },
   {
     "id": "top_k_frequent_words",
@@ -2978,7 +3098,8 @@ export const problems: Problem[] = [
         "input": "words = [\"the\",\"day\",\"is\",\"sunny\",\"the\",\"the\",\"the\",\"sunny\",\"is\",\"is\"], k = 4",
         "output": "[\"the\",\"is\",\"sunny\",\"day\"]"
       }
-    ]
+    ],
+    "types": ["list[str], int", "list[str]"]
   },
   {
     "id": "trapping_rain_water",
@@ -3006,7 +3127,8 @@ export const problems: Problem[] = [
         "input": "height = [4,2,0,3,2,5]",
         "output": "9"
       }
-    ]
+    ],
+    "types": ["list[int]", "int"]
   },
   {
     "id": "two_sum",
@@ -3031,7 +3153,8 @@ export const problems: Problem[] = [
         "input": "nums = [3,2,4], target = 6",
         "output": "[1,2]"
       }
-    ]
+    ],
+    "types": ["list[int], int", "list[int]"]
   },
   {
     "id": "unique_paths",
@@ -3057,7 +3180,8 @@ export const problems: Problem[] = [
         "input": "m = 3, n = 2",
         "output": "3"
       }
-    ]
+    ],
+    "types": ["int, int", "int"]
   },
   {
     "id": "valid_anagram",
@@ -3083,7 +3207,8 @@ export const problems: Problem[] = [
         "input": "s = \"rat\", t = \"car\"",
         "output": "false"
       }
-    ]
+    ],
+    "types": ["str, str", "bool"]
   },
   {
     "id": "valid_palindrome",
@@ -3108,7 +3233,8 @@ export const problems: Problem[] = [
         "input": "s = \"race a car\"",
         "output": "false"
       }
-    ]
+    ],
+    "types": ["str", "bool"]
   },
   {
     "id": "valid_parentheses",
@@ -3134,7 +3260,8 @@ export const problems: Problem[] = [
         "input": "s = \"()[]{}\"",
         "output": "true"
       }
-    ]
+    ],
+    "types": ["str", "bool"]
   },
   {
     "id": "valid_sudoku",
@@ -3158,7 +3285,8 @@ export const problems: Problem[] = [
         "input": "board =",
         "output": "false"
       }
-    ]
+    ],
+    "types": ["list[list[str]]", "bool"]
   },
   {
     "id": "validate_binary_search_tree",
@@ -3186,7 +3314,8 @@ export const problems: Problem[] = [
         "input": "root = [5,1,4,null,null,3,6]",
         "output": "false"
       }
-    ]
+    ],
+    "types": ["TreeNode", "bool"]
   },
   {
     "id": "word_break",
@@ -3216,7 +3345,8 @@ export const problems: Problem[] = [
         "input": "s = \"applepenapple\", wordDict = [\"apple\",\"pen\"]",
         "output": "true"
       }
-    ]
+    ],
+    "types": ["str, list[str]", "bool"]
   },
   {
     "id": "word_ladder",
@@ -3242,7 +3372,8 @@ export const problems: Problem[] = [
         "input": "beginWord = \"hit\", endWord = \"cog\", wordList = [\"hot\",\"dot\",\"dog\",\"lot\",\"log\"]",
         "output": "0"
       }
-    ]
+    ],
+    "types": ["str, str, list[str]", "int"]
   },
   {
     "id": "word_search",
@@ -3270,7 +3401,8 @@ export const problems: Problem[] = [
         "input": "board = [[\"A\",\"B\",\"C\",\"E\"],[\"S\",\"F\",\"C\",\"S\"],[\"A\",\"D\",\"E\",\"E\"]], word = \"SEE\"",
         "output": "true"
       }
-    ]
+    ],
+    "types": ["list[list[str]], str", "bool"]
   },
   {
     "id": "word_search_ii",
@@ -3297,7 +3429,8 @@ export const problems: Problem[] = [
         "input": "board = [[\"a\",\"b\"],[\"c\",\"d\"]], words = [\"abcb\"]",
         "output": "[]"
       }
-    ]
+    ],
+    "types": ["list[list[str]], list[str]", "list[str]"]
   },
   {
     "id": "zero_one_matrix",
@@ -3322,6 +3455,7 @@ export const problems: Problem[] = [
         "input": "mat = [[0,0,0],[0,1,0],[1,1,1]]",
         "output": "[[0,0,0],[0,1,0],[1,2,1]]"
       }
-    ]
+    ],
+    "types": ["list[list[int]]", "list[list[int]]"]
   }
 ] as Problem[];

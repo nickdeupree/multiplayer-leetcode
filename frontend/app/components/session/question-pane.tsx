@@ -4,9 +4,13 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { oneDark, oneLight } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { useTheme } from "next-themes";
 
 export default function QuestionPane({ problemId, description, loading }: { problemId?: string | null; description?: string | null; loading?: boolean }) {
+  const { resolvedTheme } = useTheme();
+  const themeStyle = resolvedTheme === "light" ? oneLight : oneDark;
+
   return (
     <div className="h-full rounded-xl border bg-card p-4 overflow-y-auto">
       <div className="mt-4 h-full prose prose-sm dark:prose-invert max-w-none">
@@ -24,9 +28,9 @@ export default function QuestionPane({ problemId, description, loading }: { prob
                 const match = /language-(\w+)/.exec(className || "");
                 return !inline ? (
                   <SyntaxHighlighter
-                    style={oneDark}
+                    style={themeStyle}
                     language={match ? match[1] : "text"}
-                    PreTag="div"
+                    PreTag="pre"
                     customStyle={{ margin: "1em 0", borderRadius: "8px", fontSize: "13px" }}
                     {...props}
                   >
@@ -41,6 +45,7 @@ export default function QuestionPane({ problemId, description, loading }: { prob
               // Optional: Customize header styles to be tighter
               h1: ({children}) => <h1 className="text-2xl font-bold mb-4">{children}</h1>,
               h2: ({children}) => <h2 className="text-lg font-semibold mt-6 mb-2 border-b pb-1">{children}</h2>,
+              p: ({children}) => <div className="mb-4">{children}</div>,
             }}
           >
             {description}

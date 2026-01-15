@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "start": "npx y-websocket-server --port ${PORT:-1234}"
+  },
+  "dependencies": {
+    "@y/websocket-server": "^0.1.1",
+    "y-websocket": "^3.0.0",
+    "yjs": "^13.6.29"
+  }
+}

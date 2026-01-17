@@ -62,7 +62,7 @@ export async function initCollaboration({
   const { MonacoBinding } = await import('y-monaco');
 
   const provider = new WebsocketProvider(
-    websocketUrl ?? 'ws://localhost:1234',
+    websocketUrl ?? process.env.NEXT_PUBLIC_WEBSOCKET_URL ?? 'ws://localhost:1234',
     roomName ?? 'monaco',
     ydoc
   );

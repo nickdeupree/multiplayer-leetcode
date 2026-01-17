@@ -28,7 +28,7 @@ export const useYjsLobby = (lobbyId: string, participate: boolean = true) => {
         ydocRef.current = ydoc;
 
         const provider = new WebsocketProvider(
-            'ws://localhost:1234',
+            process.env.NEXT_PUBLIC_WEBSOCKET_URL ?? 'ws://localhost:1234',
             `lobby-${lobbyId}`,
             ydoc
         );

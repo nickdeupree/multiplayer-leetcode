@@ -6,6 +6,8 @@ export type InitCollabOptions = {
   initialCode?: string | null;
   roomName?: string;
   websocketUrl?: string;
+  userName?: string;
+  userColor?: string;
   onCodeChange?: (code: string) => void;
   onExecutionStateChange?: (state: ExecutionState) => void;
   onResultsChange?: (results: ExecutionResults) => void;
@@ -40,6 +42,8 @@ export async function initCollaboration({
   initialCode,
   roomName,
   websocketUrl,
+  userName,
+  userColor,
   onCodeChange,
   onExecutionStateChange,
   onResultsChange,
@@ -47,10 +51,7 @@ export async function initCollaboration({
   const ydoc = new Y.Doc();
   const yText = ydoc.getText('monaco');
 
-  // Seed initial content if empty
-  if (yText.toString() === '' && initialCode) {
-    yText.insert(0, initialCode);
-  }
+
 
   // Create shared maps for execution state and results
   const executionState = ydoc.getMap('executionState');
@@ -66,10 +67,31 @@ export async function initCollaboration({
     ydoc
   );
 
+  // Wait for sync before seeding content to avoid duplication
+  let hasInsertedTemplate = false;
+  const syncHandler = (isSynced: boolean) => {
+    if (isSynced && yText.toString() === '' && initialCode && !hasInsertedTemplate) {
+      // Leader Election to prevent race condition
+      const states = provider.awareness.getStates();
+      const clientIds = Array.from(states.keys()) as number[];
+      const myClientId = provider.awareness.clientID;
+      const minClientId = Math.min(...clientIds);
+
+      // Only the "leader" (lowest client ID) inserts the code
+      if (myClientId === minClientId) {
+        yText.insert(0, initialCode);
+        hasInsertedTemplate = true;
+        // Remove the listener after insertion to prevent re-triggering
+        provider.off('sync', syncHandler);
+      }
+    }
+  };
+  provider.on('sync', syncHandler);
+
   // Awareness - used by y-monaco to show remote cursors
-  const hue = Math.floor(Math.random() * 360);
-  const clientColor = `hsl(${hue}, 100%, 50%)`;
-  const clientName = `User-${Math.floor(Math.random() * 1000)}`;
+  // Use the lobby-assigned color if available, otherwise generate a random one
+  const clientColor = userColor || `hsl(${Math.floor(Math.random() * 360)}, 100%, 50%)`;
+  const clientName = userName || `User-${Math.floor(Math.random() * 1000)}`;
 
   provider.awareness.setLocalStateField('user', {
     name: clientName,

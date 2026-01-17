@@ -1,14 +1,35 @@
+"use client";
+
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import { Input } from "@/components/ui/input";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Code2, Users2, Zap, MessageSquare, Trophy, Layout, ChevronRight, Github } from "lucide-react";
 import Link from "next/link";
 import LandingHeader from "@/app/components/headers/landing-header";
 
-
 export default function Home() {
+  const router = useRouter();
+  const [joinCode, setJoinCode] = useState("");
+
+  const handleCreateSession = () => {
+    // Generate a random ID. Format: XXX-XXX
+    const part1 = Math.random().toString(36).substring(2, 5).toUpperCase();
+    const part2 = Math.random().toString(36).substring(2, 5).toUpperCase();
+    const lobbyId = `${part1}-${part2}`;
+    router.push(`/lobby/${lobbyId}`);
+  };
+
+  const handleJoinSession = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!joinCode.trim()) return;
+    router.push(`/lobby/${joinCode.trim().toUpperCase()}`);
+  };
+
   return (
     <div className="flex min-h-screen flex-col bg-background">
       {/* Navbar */}
@@ -18,27 +39,43 @@ export default function Home() {
         {/* Hero Section */}
         <section className="w-full flex flex-col items-center justify-center space-y-8 py-24 text-center md:py-32 px-4">
           <Badge variant="secondary" className="px-3 py-1 text-sm font-medium">
-            Alpha Release - Now Open!
+            Alpha Release - Open for Testing
           </Badge>
           <div className="space-y-4">
             <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
               Master Leetcode <span className="text-primary italic">Together</span>
             </h1>
             <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-              Stop struggling alone. Collaborate on coding problems in real-time, share insights, and accelerate your path to a top-tier tech career.
+              Collaborate on coding problems in real-time. No sign-up required. Just create a session and invite your friends.
             </p>
           </div>
-          <div className="flex flex-col gap-4 sm:flex-row">
-            <Link href="/lobby" className="inline-block">
-              <Button size="lg" className="px-8 flex gap-2">
-                Start a Session <ChevronRight className="h-4 w-4" />
+
+          <div className="w-full max-w-xl space-y-4 bg-muted/30 p-8 rounded-2xl border">
+            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+              <Button size="lg" className="w-full sm:w-auto h-12 text-base px-8" onClick={handleCreateSession}>
+                Create Session <ChevronRight className="ml-2 h-4 w-4" />
               </Button>
-            </Link>
-            <Button size="lg" variant="outline" className="px-8">
-              Browse Problems
-            </Button>
+
+              <span className="text-sm text-muted-foreground font-medium">OR</span>
+
+              <form onSubmit={handleJoinSession} className="flex w-full sm:w-auto gap-2">
+                <Input
+                  placeholder="Enter Join Code"
+                  value={joinCode}
+                  onChange={(e) => setJoinCode(e.target.value)}
+                  className="h-12 min-w-[140px]"
+                />
+                <Button type="submit" size="lg" variant="secondary" className="h-12 px-6">
+                  Join
+                </Button>
+              </form>
+            </div>
+            <p className="text-xs text-muted-foreground mt-2">
+              Limit 4 players per lobby.
+            </p>
           </div>
-          <div className="w-full max-w-5xl rounded-xl border bg-card p-2 shadow-2xl">
+
+          <div className="w-full max-w-5xl rounded-xl border bg-card p-2 shadow-2xl mt-8">
             <AspectRatio ratio={16 / 9} className="bg-muted rounded-lg overflow-hidden flex items-center justify-center">
               <div className="text-center space-y-2">
                 <Code2 className="h-12 w-12 mx-auto text-muted-foreground/50" />
@@ -144,12 +181,14 @@ export default function Home() {
                 Ready to stop practicing in isolation? Join the collaborative coding revolution today.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-                <Button size="lg" className="px-12 h-12 text-lg">
-                  Get Started for Free
+                <Button size="lg" className="px-12 h-12 text-lg" onClick={handleCreateSession}>
+                  Start a Session
                 </Button>
-                <Button size="lg" variant="outline" className="px-12 h-12 text-lg border-2">
-                  <Github className="mr-2 h-5 w-5" /> GitHub
-                </Button>
+                <Link href="https://github.com/nickdeupree/multiplayer-leetcode" target="_blank">
+                  <Button size="lg" variant="outline" className="px-12 h-12 text-lg border-2">
+                    <Github className="mr-2 h-5 w-5" /> GitHub
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -175,5 +214,3 @@ export default function Home() {
     </div>
   );
 }
-
-

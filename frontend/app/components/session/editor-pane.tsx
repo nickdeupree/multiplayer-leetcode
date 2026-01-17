@@ -7,20 +7,22 @@ import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
 import { initCollaboration, CollabHandle, ExecutionState, ExecutionResults } from "@/app/helpers/session/collab";
 
-export default function EditorPane({ 
-  initialCode, 
-  onRun, 
+export default function EditorPane({
+  initialCode,
+  onRun,
   onSubmit,
   onCodeChange,
   isRunning,
   isSubmitting,
   roomName,
   websocketUrl,
+  userName,
+  userColor,
   onCollabReady,
   onExecutionStateChange,
   onResultsChange,
-}: { 
-  initialCode?: string | null; 
+}: {
+  initialCode?: string | null;
   onRun?: () => void;
   onSubmit?: () => void;
   onCodeChange?: (code: string) => void;
@@ -28,19 +30,21 @@ export default function EditorPane({
   isSubmitting?: boolean;
   roomName?: string;
   websocketUrl?: string;
+  userName?: string;
+  userColor?: string;
   onCollabReady?: (handle: CollabHandle) => void;
   onExecutionStateChange?: (state: ExecutionState) => void;
   onResultsChange?: (results: ExecutionResults) => void;
 }) {
   const { resolvedTheme } = useTheme();
-  const [value, setValue] = useState<string>(initialCode ?? "");
+  // Initialize as empty to defer to Yjs
+  const [value, setValue] = useState<string>("");
 
   // Collab handle ref for provider/binding/cleanup
   const collabRef = useRef<{ cleanup?: () => Promise<void> | void; ydoc?: any; provider?: any; binding?: any } | null>(null);
 
-  useEffect(() => {
-    setValue(initialCode ?? "");
-  }, [initialCode]);
+  // Removed useEffect syncing initialCode to value
+
 
   const monaco = useMonaco();
 
@@ -78,6 +82,8 @@ export default function EditorPane({
         initialCode,
         roomName,
         websocketUrl,
+        userName,
+        userColor,
         onCodeChange: (newCode: string) => {
           setValue(newCode);
           if (onCodeChange) onCodeChange(newCode);
@@ -86,7 +92,7 @@ export default function EditorPane({
         onResultsChange,
       });
       collabRef.current = handle;
-      
+
       // Notify parent component that collab is ready
       if (onCollabReady) {
         onCollabReady(handle);
@@ -116,6 +122,32 @@ export default function EditorPane({
     };
   }, []);
 
+  // Update awareness when props change
+  useEffect(() => {
+    if (collabRef.current?.provider?.awareness && (userName || userColor)) {
+      const awareness = collabRef.current.provider.awareness;
+      const currentState = awareness.getLocalState();
+
+      const newState = {
+        ...currentState?.user,
+      };
+
+      let changed = false;
+      if (userName && userName !== currentState?.user?.name) {
+        newState.name = userName;
+        changed = true;
+      }
+      if (userColor && userColor !== currentState?.user?.color) {
+        newState.color = userColor;
+        changed = true;
+      }
+
+      if (changed) {
+        awareness.setLocalStateField('user', newState);
+      }
+    }
+  }, [userName, userColor]);
+
   // Standard Monaco onChange
   const handleChange = (v: string | undefined) => {
     // We only update local state here. 
@@ -131,9 +163,9 @@ export default function EditorPane({
       <div className="flex items-center justify-between p-4 border-b">
         <h3 className="text-lg font-semibold">Code Editor</h3>
         <div className="flex gap-2">
-          <Button 
-            variant="outline" 
-            size="sm" 
+          <Button
+            variant="outline"
+            size="sm"
             onClick={onRun}
             disabled={isRunning || isSubmitting}
           >
@@ -144,8 +176,8 @@ export default function EditorPane({
               </>
             ) : "Run"}
           </Button>
-          <Button 
-            variant="default" 
+          <Button
+            variant="default"
             size="sm"
             onClick={onSubmit}
             disabled={isRunning || isSubmitting}

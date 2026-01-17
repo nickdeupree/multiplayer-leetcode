@@ -8,15 +8,15 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import { Github } from "lucide-react";
 
 export default function LandingHeader() {
   const right = (
     <div className="flex items-center gap-4">
-      <Button variant="ghost" size="sm" className="hidden sm:inline-flex">
-        Log in
-      </Button>
-      <Link href="/lobby">
-        <Button size="sm">Get Started</Button>
+      <Link href="https://github.com/nickdeupree/multiplayer-leetcode" target="_blank">
+        <Button variant="ghost" size="icon">
+          <Github className="h-5 w-5" />
+        </Button>
       </Link>
     </div>
   );

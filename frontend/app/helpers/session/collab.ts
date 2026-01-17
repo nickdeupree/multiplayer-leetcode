@@ -61,11 +61,22 @@ export async function initCollaboration({
   const { WebsocketProvider } = await import('y-websocket');
   const { MonacoBinding } = await import('y-monaco');
 
+  const wsUrl = websocketUrl ?? process.env.NEXT_PUBLIC_WEBSOCKET_URL ?? 'ws://localhost:1234';
+  console.log('[initCollaboration] Connecting to WebSocket URL:', wsUrl, 'Room:', roomName);
+
   const provider = new WebsocketProvider(
-    websocketUrl ?? process.env.NEXT_PUBLIC_WEBSOCKET_URL ?? 'ws://localhost:1234',
+    wsUrl,
     roomName ?? 'monaco',
     ydoc
   );
+
+  provider.on('status', (event: any) => {
+    console.log('[initCollaboration] Connection status:', event.status);
+  });
+
+  provider.on('connection-error', (event: any) => {
+    console.error('[initCollaboration] Connection error:', event);
+  });
 
   // Wait for sync before seeding content to avoid duplication
   let hasInsertedTemplate = false;

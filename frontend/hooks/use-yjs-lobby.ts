@@ -27,14 +27,25 @@ export const useYjsLobby = (lobbyId: string, participate: boolean = true) => {
         const ydoc = new Y.Doc();
         ydocRef.current = ydoc;
 
+        const wsUrl = process.env.NEXT_PUBLIC_WEBSOCKET_URL ?? 'ws://localhost:1234';
+        console.log('[useYjsLobby] Connecting to WebSocket URL:', wsUrl, 'Lobby:', lobbyId);
+
         const provider = new WebsocketProvider(
-            process.env.NEXT_PUBLIC_WEBSOCKET_URL ?? 'ws://localhost:1234',
+            wsUrl,
             `lobby-${lobbyId}`,
             ydoc
         );
         providerRef.current = provider;
 
         const awareness = provider.awareness;
+
+        provider.on('status', (event: any) => {
+            console.log('[useYjsLobby] Connection status:', event.status);
+        });
+
+        provider.on('connection-error', (event: any) => {
+            console.error('[useYjsLobby] Connection error:', event);
+        });
 
         if (participate) {
             // Try to recover state from localStorage
